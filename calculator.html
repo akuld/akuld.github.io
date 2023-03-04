@@ -1,0 +1,185 @@
+<html>
+<head>
+    <link rel = "stylesheet" href = "style.css">
+	<link href = "https://fonts.googleapis.com/css?family=Dosis&display=swap" rel = "stylesheet">
+	<script type = "text/javascript" src = "script.js"></script>
+    <title>MMI Calculator</title>
+    <link rel="icon" href="img/logo.png">
+</head>
+<body>
+    <div class = "navbar">
+        <img src = "img/logo.png">
+		<ul class = "navitems">
+			<li><a href = "index.html">Home</a></li>
+			<li><a href = "about.html">About</a></li>
+			<li><a href = "calculator.html">Calculator</a></li>
+			<li><a href = "filter.html">Filter</a></li>
+            <li><a href = "resources.html">Resources</a></li>
+		</ul>
+	</div>
+    <div class = "secondarybanner">
+        <h1 class = "reveal fade-bottom">How does it work?</h1>
+        <div class = "middle-column reveal fade-bottom">
+        <p>This calculator is based on the standards for the Virginia Save Our Streams Macroinvertebrate Multimetric Index (VASOS MMI) scores. Specifics about the calculations for each of the metrics can be found <a href = "https://vasos.org/wp-content/uploads/fieldSheetsNewMethod.pdf">here</a> (pages 4-7).</p>
+        </div>
+    </div>
+    <div class = "primarybanner">
+        <h1 class = "reveal fade-bottom">MMI Calculator</h1>
+        <div class = "left-column reveal fade-left">
+            <label for = "worms">Worms: <br/></label>
+            <input type="number" id="worms" value="0"><br/>
+            <label for = "flatworms">Flatworms: <br/></label>
+            <input type="number" id="flatworms" value="0"><br/>
+            <label for = "leeches">Leeches: <br/></label>
+            <input type="number" id="leeches" value="0"><br/>
+            <label for = "crayfishes">Crayfishes: <br/></label>
+            <input type="number" id="crayfishes" value="0"><br/>
+            <label for = "sowbugs">Sowbugs: <br/></label>
+            <input type="number" id="sowbugs" value="0"><br/>
+            <label for = "scuds">Scuds: <br/></label>
+            <input type="number" id="scuds" value="0"><br/>
+            <label for = "stoneflies">Stoneflies: <br/></label>
+            <input type="number" id="stoneflies" value="0"><br/>
+            <label for = "mayflies">Mayflies: <br/></label>
+            <input type="number" id="mayflies" value="0"><br/>
+            <label for = "dragondamsel">Dragonflies and damselflies: <br/></label>
+            <input type="number" id="dragondamsel" value="0"><br/>
+            <label for = "hellfishalder">Hellgrammites, fishflies, and alderflies: <br/></label>
+            <input type="number" id="hellfishalder" value="0"><br/>
+            <label for = "netspinners">Common netspinners: <br/></label>
+            <input type="number" id="netspinners" value="0"><br/>
+            <label for = "caddisflies">Most caddisflies: <br/></label>
+            <input type="number" id="caddisflies" value="0"><br/>
+            <label for = "beetles">Beetles: <br/></label>
+            <input type="number" id="beetles" value="0"><br/>
+            <label for = "midges">Midges: <br/></label>
+            <input type="number" id="midges" value="0"><br/>
+            <label for = "blackflies">Black flies: <br/></label>
+            <input type="number" id="blackflies" value="0"><br/>
+            <label for = "trueflies">Most true flies: <br/></label>
+            <input type="number" id="trueflies" value="0"><br/>
+            <label for = "gilledsnails">Gilled snails: <br/></label>
+            <input type="number" id="gilledsnails" value="0"><br/>
+            <label for = "lungedsnails">Lunged snails: <br/></label>
+            <input type="number" id="lungedsnails" value="0"><br/>
+            <label for = "clams">Clams: <br/></label>
+            <input type="number" id="clams" value="0"><br/>
+            <label for = "other">Other organisms: <br/></label>
+            <input type="number" id="other" value="0"><br/>
+            <button type="button" class = "secondarybutton" onclick="getInputValue();">Calculate MMI!</button>
+        </div>
+        <div class = "right-column reveal fade-right">
+            <h3 id = "m1">Metric 1: </h3>
+            <h3 id = "m2">Metric 2: </h3>
+            <h3 id = "m3">Metric 3: </h3>
+            <h3 id = "m4">Metric 4: </h3>
+            <h3 id = "m5">Metric 5: </h3>
+            <h3 id = "m6">Metric 6: </h3>
+            <h3 id = "mmi">MMI Score: </h3>
+            <p id = "streamStatus"></p>
+        </div>
+    </div>
+    <!--Worms, flatworms, leeches, crayfishes, sowbugs, scuds, stoneflies, mayflies,
+    dragonflies and damselflies, hellgrammites; fishflies; and alderflies, common netspinners, 
+    most caddisflies, beetles, midges, black flies, most true flies, gilled snails, lunged snails, 
+    clams, other-->
+    <!--Metric 1: Mayflies + stoneflies + most caddisflies-->
+    <!--Metric 2: Common netspinners-->
+    <!--Metric 3: Lunged snails-->
+    <!--Metric 4: Beetles-->
+    <!--Metric 5: % Tolerant - worms, flatworms, leeches, sowbugs, scuds, dragonflies and damselflies, midges, black flies, lunged snails, clams-->
+    <!--Metric 6: % Non-Insects: worms, flatworms, leeches, crayfish, sowbugs, scuds, gilled snails, lunged snails, clams-->
+    <script>
+        function getInputValue(){
+            var wormsVal = parseInt(document.getElementById("worms").value);
+            var flatwormsVal = parseInt(document.getElementById("flatworms").value);
+            var leechesVal = parseInt(document.getElementById("leeches").value);
+            var crayfishesVal = parseInt(document.getElementById("crayfishes").value);
+            var sowbugsVal = parseInt(document.getElementById("sowbugs").value);
+            var scudsVal = parseInt(document.getElementById("scuds").value);
+            var stonefliesVal = parseInt(document.getElementById("stoneflies").value);
+            var mayfliesVal = parseInt(document.getElementById("mayflies").value);
+            var dragondamselVal = parseInt(document.getElementById("dragondamsel").value);
+            var hellfishalderVal = parseInt(document.getElementById("hellfishalder").value);
+            var netspinnersVal = parseInt(document.getElementById("netspinners").value);
+            var caddisfliesVal = parseInt(document.getElementById("caddisflies").value);
+            var beetlesVal = parseInt(document.getElementById("beetles").value);
+            var midgesVal = parseInt(document.getElementById("midges").value);
+            var blackfliesVal = parseInt(document.getElementById("blackflies").value);
+            var truefliesVal = parseInt(document.getElementById("trueflies").value);
+            var gilledsnailsVal = parseInt(document.getElementById("gilledsnails").value);
+            var lungedsnailsVal = parseInt(document.getElementById("lungedsnails").value);
+            var clamsVal = parseInt(document.getElementById("clams").value);
+            var otherVal = parseInt(document.getElementById("other").value);
+            var total = wormsVal + flatwormsVal + leechesVal + crayfishesVal + sowbugsVal + scudsVal + stonefliesVal + mayfliesVal + dragondamselVal + hellfishalderVal + netspinnersVal + caddisfliesVal + beetlesVal + midgesVal + blackfliesVal + truefliesVal + gilledsnailsVal + lungedsnailsVal + clamsVal + otherVal;
+            var m1 = parseFloat((mayfliesVal + stonefliesVal + caddisfliesVal) / total);
+            var m2 = parseFloat(netspinnersVal / total);
+            var m3 = parseFloat(lungedsnailsVal / total);
+            var m4 = parseFloat(beetlesVal / total);
+            var m5 = parseFloat((wormsVal + flatwormsVal + leechesVal + sowbugsVal + scudsVal + dragondamselVal + midgesVal + blackfliesVal + lungedsnailsVal + clamsVal) / total);
+            var m6 = parseFloat((wormsVal + flatwormsVal + leechesVal + crayfishesVal + sowbugsVal + scudsVal + gilledsnailsVal + lungedsnailsVal + clamsVal) / total);
+            var metricOne = 0;
+            var metricTwo = 0;
+            var metricThree = 0;
+            var metricFour = 0;
+            var metricFive = 0;
+            var metricSix = 0;
+            if (m1 > 0.322) {
+                metricOne = 2;
+            }
+            else if (m1 >= .161) {
+                metricOne = 1;
+            }
+            if (m2 < .197) {
+                metricTwo = 2;
+            }
+            else if (m2 <= .345) {
+                metricTwo = 1;
+            }
+            if (m3 < 0.003) {
+                metricThree = 2;
+            }
+            else if (m3 <= .015) {
+                metricThree = 1;
+            }
+            if (m4 > .064) {
+                metricFour = 2;
+            }
+            else if (m4 >= .032) {
+                metricFour = 1;
+            }
+            if (m5 < .467) {
+                metricFive = 2;
+            }
+            else if (m5 <= .615) {
+                metricFive = 1;
+            }
+            if (m6 < .054) {
+                metricSix = 2;
+            }
+            else if (m6 <= .208) {
+                metricSix = 1; 
+            }
+            var mmi = metricOne + metricTwo + metricThree + metricFour + metricFive + metricSix;
+            var status = "";
+            if (mmi > 8) {
+                status = "This stream is in an acceptable condition.";
+            }
+            else if (mmi == 8) {
+                status = "The condition of this stream is unable to be determined.";
+            }
+            else {
+                status = "The stream is in an unacceptable condition.";
+            }
+            document.getElementById("m1").innerHTML = "Metric 1: " + metricOne;
+            document.getElementById("m2").innerHTML = "Metric 2: " + metricTwo;
+            document.getElementById("m3").innerHTML = "Metric 3: " + metricThree;
+            document.getElementById("m4").innerHTML = "Metric 4: " + metricFour;
+            document.getElementById("m5").innerHTML = "Metric 5: " + metricFive;
+            document.getElementById("m6").innerHTML = "Metric 6: " + metricSix;
+            document.getElementById("mmi").innerHTML = "MMI Score: " + mmi;
+            document.getElementById("streamStatus").innerHTML = status;
+        }
+    </script>
+</body>
+</html>
