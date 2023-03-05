@@ -22,7 +22,7 @@ const searchOne = () => {
     const searchbox = document.getElementById("search-cat").value.toUpperCase();
     const storeitems = document.getElementById("product-list")
     const product = document.querySelectorAll(".product")
-    const pname = storeitems.getElementsByTagName("h3")
+    const pname = storeitems.getElementsByTagName("h2")
 
     for (var i = 0; i < pname.length; i++) {
         let match = product[i].getElementsByTagName('h3')[0];
