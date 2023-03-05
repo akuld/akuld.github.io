@@ -1,31 +1,131 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <link rel = "stylesheet" href = "style.css">
-	<link href = "https://fonts.googleapis.com/css?family=Dosis&display=swap" rel = "stylesheet">
-	<script type = "text/javascript" src = "script.js"></script>
-    <title>Home</title>
-    <link rel="icon" href="img/logo.png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech2 etc JavaScript Product Filter</title>
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class = "navbar">
-        <img src = "img/logo.png">
-		<ul class = "navitems">
-			<li><a href = "index.html">Home</a></li>
-			<li><a href = "about.html">About</a></li>
-			<li><a href = "calculator.html">Calculator</a></li>
-			<li><a href = "filter.html">Filter</a></li>
-            <li><a href = "resources.html">Resources</a></li>
-		</ul>
-	</div>
-    <div class = "transparentbanner">
-        <div class = "left-column">
-            <h3>Profile Creation</h3>
-            <button type = "button" class = "primarybutton"><a href = "filter.html">Learn More!</a></button>
+
+    <section class="container">
+        <form>
+            <i class="fas fa-search"></i>
+            <input type="text" name="" id="search-item" placeholder="Search products" onkeyup="search()">
+        </form>
+
+        <div class="product-list" id="product-list">
+
+            <div class="product">
+                <img src="img/t1.jpg" alt="">
+                <div class="p-details">
+                    <h2>Tshirt For Everyone</h2>
+                    <h3>$25</h3>
+                </div>
+            </div>
+            <div class="product">
+                <img src="img/w1.jpg" alt="">
+                <div class="p-details">
+                    <h2>Tranya Smart Watch</h2>
+                    <h3>$25</h3>
+                </div>
+            </div>
+            <div class="product">
+                <img src="img/b1.jpg" alt="">
+                <div class="p-details">
+                    <h2>PUMA Roma Bag</h2>
+                    <h3>$25</h3>
+                </div>
+            </div>
+            <div class="product">
+                <img src="img/h1.jpg" alt="">
+                <div class="p-details">
+                    <h2>Hoodie For Everbody</h2>
+                    <h3>$25</h3>
+                </div>
+            </div>
+            <div class="product">
+                <img src="img/s1.jpg" alt="">
+                <div class="p-details">
+                    <h2>Grand Court Sneaker</h2>
+                    <h3>$25</h3>
+                </div>
+            </div>
+            <div class="product">
+                <img src="img/h2.jpg" alt="">
+                <div class="p-details">
+                    <h2>Fenta Fashion Hoodie</h2>
+                    <h3>$25</h3>
+                </div>
+            </div>
+            <div class="product">
+                <img src="img/b2.jpg" alt="">
+                <div class="p-details">
+                    <h2>Bag For Roadtrip</h2>
+                    <h3>$25</h3>
+                </div>
+            </div>
+            <div class="product">
+                <img src="img/t2.jpg" alt="">
+                <div class="p-details">
+                    <h2>Gildan Men's Crew TShirts</h2>
+                    <h3>$25</h3>
+                </div>
+            </div>
+            <div class="product">
+                <img src="img/w2.jpg" alt="">
+                <div class="p-details">
+                    <h2>Tranya Smart Watch</h2>
+                    <h3>$25</h3>
+                </div>
+            </div>
+            <div class="product">
+                <img src="img/t3.jpg" alt="">
+                <div class="p-details">
+                    <h2>Tranya Tshirt</h2>
+                    <h3>$25</h3>
+                </div>
+            </div>
+            <div class="product">
+                <img src="img/b3.jpg" alt="">
+                <div class="p-details">
+                    <h2>Fashionable Bags</h2>
+                    <h3>$25</h3>
+                </div>
+            </div>
+            <div class="product">
+                <img src="img/h3.jpg" alt="">
+                <div class="p-details">
+                    <h2>Hoodie Fashion</h2>
+                    <h3>$25</h3>
+                </div>
+            </div>
+            <div class="product">
+                <img src="img/s3.jpg" alt="">
+                <div class="p-details">
+                    <h2>adidas Sneaker</h2>
+                    <h3>$25</h3>
+                </div>
+            </div>
+            <div class="product">
+                <img src="img/s2.jpg" alt="">
+                <div class="p-details">
+                    <h2>Adidas Grand Court Sneaker</h2>
+                    <h3>$25</h3>
+                </div>
+            </div>
+
         </div>
-        <div class = "right-column">
-            <h3>StartUp Search</h3>
-            <button type = "button" class = "primarybutton"><a href = "calculator.html">Calculate Stream Health!</a></button>
-        </div>
-    </div>
+    </section>
+
+
+    <script src="app.js"></script>
 </body>
+
 </html>
