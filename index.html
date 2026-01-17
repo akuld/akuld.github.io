@@ -1,54 +1,282 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Engineering Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: #000000;
-      color: #eeeeee;
-      margin: 0;
-    }
-    .mono {
-      font-family: 'Courier New', Courier, monospace;
-    }
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #0a0a0a;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #333333;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #444444;
-    }
-    /* Technical grid background effect */
-    .tech-bg {
-      background-image: linear-gradient(#111 1px, transparent 1px), linear-gradient(90deg, #111 1px, transparent 1px);
-      background-size: 40px 40px;
-    }
-  </style>
-<script type="importmap">
-{
-  "imports": {
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-router-dom": "https://esm.sh/react-router-dom@^7.12.0"
-  }
-}
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jane Doe | Engineering Portfolio</title>
+    <style>
+        /* --- CSS Variables for Easy Customization --- */
+        :root {
+            --primary-color: #2c3e50;    /* Dark Blue/Grey */
+            --accent-color: #3498db;     /* Bright Blue */
+            --bg-color: #f4f7f6;         /* Light Grey Background */
+            --card-bg: #ffffff;          /* White */
+            --text-color: #333333;
+            --text-light: #666666;
+        }
+
+        /* --- Global Reset & Typography --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- Layout Container --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header / Hero Section --- */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #bdc3c7;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 8px 16px;
+            border: 1px solid white;
+            border-radius: 5px;
+            color: white;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        /* --- Sections General --- */
+        section {
+            padding: 3rem 0;
+        }
+
+        h2.section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 5px;
+            /* Center the underline effect */
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* --- About Section --- */
+        .about-content {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* --- Skills Section --- */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .skill-tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* --- Projects Section --- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Placeholder for Project Image */
+        .project-img {
+            height: 180px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-weight: bold;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .project-info p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .project-link {
+            text-align: right;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--primary-color);
+            color: #bdc3c7;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        /* --- Mobile Responsive Adjustment --- */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            .container { padding: 0 15px; }
+        }
+    </style>
 </head>
-<body class="tech-bg">
-  <div id="root"></div>
-  <!-- This script tag is required to start the application -->
-  <script type="module" src="index.tsx"></script>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Jane Doe</h1>
+            <p>Mechanical Engineer | CAD Specialist | Automation Enthusiast</p>
+            <div class="social-links">
+                <a href="#">Email Me</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p>
+                    I am a results-driven engineer with a passion for sustainable design and robotics. 
+                    With a background in mechanical systems and proficiency in Python, I bridge the gap between 
+                    hardware and software. Currently seeking opportunities to apply my problem-solving skills 
+                    in the automotive or aerospace industries.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <span class="skill-tag">SolidWorks</span>
+                <span class="skill-tag">AutoCAD</span>
+                <span class="skill-tag">Python & MATLAB</span>
+                <span class="skill-tag">Finite Element Analysis (FEA)</span>
+                <span class="skill-tag">3D Printing / Additive Mfg</span>
+                <span class="skill-tag">Circuit Design (Eagle)</span>
+                <span class="skill-tag">Project Management</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="project-grid">
+                
+                <article class="project-card">
+                    <div class="project-img">Project Image Placeholder</div>
+                    <div class="project-info">
+                        <h3>Autonomous Rover</h3>
+                        <p>Designed and built a 4-wheel rover capable of navigating obstacle courses using ultrasonic sensors and Arduino.</p>
+                        <a href="#" class="project-link">View Code &rarr;</a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-img">Project Image Placeholder</div>
+                    <div class="project-info">
+                        <h3>Heat Exchanger Simulation</h3>
+                        <p>Used ANSYS Fluent to simulate fluid flow and thermal transfer in a shell-and-tube heat exchanger, optimizing efficiency by 15%.</p>
+                        <a href="#" class="project-link">Read Case Study &rarr;</a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-img">Project Image Placeholder</div>
+                    <div class="project-info">
+                        <h3>Smart Home IoT Hub</h3>
+                        <p>Developed a Raspberry Pi based central hub to control lighting and temperature via a custom Python web dashboard.</p>
+                        <a href="#" class="project-link">View Details &rarr;</a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Jane Doe. All rights reserved.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
